@@ -1,0 +1,66 @@
+html,body{
+	height:100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+
+}
+
+
+body {
+	background: -webkit-linear-gradient(top,  rgba(125,185,232,1) 71%,rgba(125,185,232,1) 99%); /* Chrome10+,Safari5.1+ */
+
+}
+.group {
+	border-left: 1.3px solid #999999;
+	border-right: 1.3px solid #999999;
+	color: #006;
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(209,238,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	
+	width: 76%;
+
+
+	padding: 0px;
+
+	margin-top: 0px ;
+	margin-bottom: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#navbar{
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(209,238,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	position:relative;
+	box-shadow: inset 0 -1px 0 var(--color-border-secondary);
+
+}
+
+#navbar:before{
+	content: '';
+	position: absolute;
+	bottom:-2%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+	z-index: -1;
+	filter: blur(10px);
+}
+
+#texto {
+	margin: 0px auto;
+	width: 60%;
+	margin-bottom: 32px;
+
+}
+
+#accordionExample{
+	margin-bottom: 100px;
+	border-radius: 30px;
+}
+
+#jumbo{
+	background-color: #3aadcf;
+}
+
+
+
