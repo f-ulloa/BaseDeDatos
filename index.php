@@ -1,12 +1,11 @@
 <?php
-session_start();
 
+session_start();
 if ($_POST && $_SESSION["actualizado"]== "SI")
 {
 header("Location: redirect.php");
 exit();
 }
-
 
 ?>
 
@@ -91,13 +90,23 @@ exit();
                         ?>
                         <br/>
 
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Obtener garantia de un producto
-                                <span><em>(codigo del producto)</em></span></label>
+                        <form action="./Query/CantidadVendedores.php" method="POST">
+                            <label for="codigo_venta">Cantidad de vendedores que hay en local
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
                             <input class="form-btn" name="submit" type="submit" value="Consultar" />
                         </form>
+                        <?php
+                            if(!$_POST){
+                                $_SESSION["actualizado"]="NO";
+                            }else{
+                                echo '<p> Resultado: '.$_POST['Consulta2'].'</p>';
+                                echo "<script>";
+                                echo "AbrirFunciones()";
+                                echo "</script>";
+
+                            }
+
+                        ?>
                         <br/>
 
 
@@ -217,7 +226,20 @@ exit();
                     <h2 class="mb-0">
                         <button class="btn btn-primary btn-block text-center text-white" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Modificar Base de datos
+                            M                </form>
+                        <br/>
+                        <br/>
+
+
+                        <form action="" method="POST">
+                            <label for="codigo_venta">Nombre del producto y precios de los productos comprados a los proveedores 
+                            <br/>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                        </form>
+
+                    </div>
+
+odificar Base de datos
                         </button>
                     </h2>
                 </div>
