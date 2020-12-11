@@ -22,7 +22,7 @@ $resultado->execute();
 
 #Comprobar si se inserto
 if($resultado){
-    echo '<script language="javascript">alert("Insertado Correctamente");window.location.href="../Tablas/Ventas_Detalles.php"</script>'; 
+    echo '<script language="javascript">alert("Insertado Correctamente");window.location.href="../Tablas/Ventas.php"</script>'; 
 }else{
     echo '<script language="javascript">alert("No se pudo insertar");window.location.href="../index.html"</script>';  
 
