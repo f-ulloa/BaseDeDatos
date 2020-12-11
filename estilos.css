@@ -8,14 +8,14 @@ html,body{
 
 
 body {
-	background: -webkit-linear-gradient(top,  rgba(125,185,232,1) 71%,rgba(125,185,232,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -webkit-linear-gradient(top,  #424242 71%,#424242 99%); /* Chrome10+,Safari5.1+ */
 
 }
 .group {
-	border-left: 1.3px solid #999999;
-	border-right: 1.3px solid #999999;
-	color: #006;
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(209,238,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	border-left: 1.3px solid #424242;
+	border-right: 1.3px solid #424242;
+	color: rgb(255, 255, 255);
+	background: -webkit-linear-gradient(top,  rgb(66, 66, 66) 0%,rgb(66, 66, 66) 100%); /* Chrome10+,Safari5.1+ */
 	
 	width: 76%;
 
@@ -27,9 +27,21 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 }
-
+#card{
+	position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #424242;
+    background-clip: border-box;
+    border: 1px solid rgba(41, 41, 41, 0.125);
+    border-radius: .25rem;
+}
 #navbar{
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(209,238,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: rgb(51, 51, 51); /* Chrome10+,Safari5.1+ */
 	position:relative;
 	box-shadow: inset 0 -1px 0 var(--color-border-secondary);
 
@@ -50,17 +62,32 @@ body {
 	margin: 0px auto;
 	width: 60%;
 	margin-bottom: 32px;
-
+	color: white;
+	background-color: #424242;
 }
 
 #accordionExample{
+	
 	margin-bottom: 100px;
 	border-radius: 30px;
+	background-color: #424242;
 }
 
 #jumbo{
-	background-color: #3aadcf;
+	background-color: #252525;
 }
 
+#collapseOne{
+	background-color: #424242;
+	
+}
+#headingOne{
+	background-color: #424242;
+}
 
-
+#headingTwo{
+	background-color: #424242;
+}
+#collapseTwo{
+	background-color: #424242;
+}

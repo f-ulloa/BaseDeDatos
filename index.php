@@ -1,11 +1,12 @@
 <?php
-
 session_start();
+
 if ($_POST && $_SESSION["actualizado"]== "SI")
 {
 header("Location: redirect.php");
 exit();
 }
+
 
 ?>
 
@@ -33,18 +34,17 @@ exit();
         }
     </script>
 
-<body >
-    <nav class="navbar navbar-light" id="navbar">
+<body id="body">
+    <nav class="navbar navbar-dark" id="navbar">
         <a class="navbar-brand" href="">Inicio</a>
         <a class="navbar-brand" href="">Clientes</a>
         <a class="navbar-brand" href="">Productos</a>
         <a class="navbar-brand" href="">Vendedores</a>
         <a class="navbar-brand" href="">Ventas</a>
         <a class="navbar-brand" href="./Tablas/VentasDetalle.php">Detalles Ventas</a>
-        <a class="navbar-brand navbar-left" href="#">Login</a>
 
     </nav>
-    <div class="group" >
+    <div class="group" id="group" >
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container">
               <h1 class="display-4">Bienvenido a GBD</h1>
@@ -52,12 +52,12 @@ exit();
             </div>
           </div>
 
-        <h1 id="texto"><em>Base de datos de la empresa</em></h1>
+        <center><h1 id="texto"><em>Base de datos de la empresa</em></h1></center>
         <div class="accordion" id="accordionExample" style='padding-left: 15%; padding-right: 15%'>
-            <div class="card ">
+            <div class="card" id="card">
                 <div class="card-header " id="headingOne">
                     <h2 class="mb-0">
-                        <button id="BotonActivar" class="btn btn-primary btn-block text-center text-white" type="button" data-toggle="collapse"
+                        <button id="BotonActivar" class="btn btn-light btn-block text-center text-dark" type="button" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Consultas a la Base de Datos
                         </button>
@@ -67,12 +67,12 @@ exit();
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                     data-parent="#accordionExample">
                     <div class="card-body">
-                        <form action="./Query/CantidadProductosVendidos.php" method="POST">
-                            <label for="codigo_venta">Cantidad de productos vendidos en una venta
-                                <span><em>(codigo de la venta)</em></span></label>
+                        <form action="./Query/Query1.php" method="POST">
+                            <label for="codigo_venta">1. Stock de celulares a partir del codigo_producto
+                                <br>
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                           <center> <input type="text" name="codigo_producto" class="form-input" required /> </center>   
+                           <br><center> <input class="form-btn" name="submit" type="submit" value="Consultar" /> </center>
                         </form>
                         <?php
                          
@@ -80,7 +80,7 @@ exit();
                                 $_SESSION["actualizado"]="NO";
                             }else{
                                 $_SESSION["actualizado"]="SI";  
-                                echo '<p> Resultado: '.$_POST['Consulta1'].'</p>';
+                                echo '<p> Stock: '.$_POST['Q1Stock'].'</p>';
                                 echo "<script>";
                                 echo "AbrirFunciones()";
                                 echo "</script>";
@@ -90,189 +90,247 @@ exit();
                         ?>
                         <br/>
 
-                        <form action="./Query/CantidadVendedores.php" method="POST">
-                            <label for="codigo_venta">Cantidad de vendedores que hay en local
+                        <form action="./Query/Query2.php" method="POST">
+                            <label for="codigo_venta">2. Obtener garantia de un producto vendido a partir del codigo del producto y del vendedor
                                 <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <?php
-                            if(!$_POST){
-                                $_SESSION["actualizado"]="NO";
-                            }else{
-                                echo '<p> Resultado: '.$_POST['Consulta2'].'</p>';
-                                echo "<script>";
-                                echo "AbrirFunciones()";
-                                echo "</script>";
-
-                            }
-
-                        ?>
-                        <br/>
-
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Obtener el nombre del cliente de una determinada venta
-                                <span><em>(codigo de la venta)</em></span></label>
-                                <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                                <br>
+                           <center><input type="text" name="codigo_producto" class="form-input" placeholder='codigo_Producto' required /></br></br>
+                            <input type="text" name="codigo_venta" class="form-input" placeholder='codigo_venta' required />
+                            <br><br><input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
                         </form>
                         <br/>
 
 
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Obtener el nombre del vendedor de una venta
-                                <span><em>(codigo de la venta)</em></span></label>
+                        <form action="./Query/Query3.php" method="POST">
+                            <label for="codigo_venta">3. Obtener los ganancia de un mes/año de la tienda.
+                            <br>
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                           <center> <input type="text" name="año" class="form-input" placeholder='año' required /></br></br>
+                            <input type="text" name="mes" class="form-input" placeholder='mes' required />
+                            <br><br><input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+
+
+                        <form action="./Query/Query4.php" method="POST">
+                            <label for="codigo_venta">4. Lista de montos obtenidos por cada vendedor en un día “FechaAConsultar”
+                                <br><br/>
+                           <center>  <input type="text" name="fecha" class="form-input" required placeholder='YYYY-MM-DD'/>
+                            <br><br><input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
                         </form>
                         <br/>
                         
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Obtener ingresos mensuales de la tienda
-                                <span><em>(Mes a analizar)</em></span></label>
+                        <form action="./Query/Query5.php" method="POST">
+                            <label for="codigo_venta">5. Nombres de los producto que más y que menos se vende, en un determinado mes
+                            <br>
+                            <br>
+                          <center>  <input type="text" name="mes" class="form-input" placeholder='mes 02' required /></br></br>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+
+                        <form action="./Query/Query6.php" method="POST">
+                            <label for="codigo_venta">6. Nombres de los productos con stock menores a X</br></br>
+                       <center>      <input type="text" name="stock" class="form-input" required />
+                            <br><br><input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+
+                        <form action="./Query/Query7.php" method="POST">
+                            <label for="codigo_venta">7. Lista de productos, nombre, precio venta, precio compra y nombre del proveedor del producto para un codigo de proveedor X
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                                <br>
+                            <center>  <input type="text" name="codigo_proveedor" class="form-input" required placeholder='codigo_proveedor'/>
+                            <br><br><input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
                         </form>
                         <br/>
 
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Monto obtenido por cada vendedor en un dia
-                                <span><em>(fecha a analizar)</em></span></label>
+                        <form action="./Query/Query8.php" method="POST">
+                            <label for="codigo_venta">8. Datos de contacto de un proveedor  de código X
+                            <br/>
+                            <br>
+                         <center>   <input type="text" name="codigo_proveedor" class="form-input" required placeholder='codigo_proveedor'/>
+                          <br><br>  <input class="form-btn" name="submit" type="submit" value="Consultar" /> </center>            
+                        </form>
+                        <br/>
+                        <br/>
+
+
+                        <form action="./Query/Query9.php" method="POST">
+                            <label for="codigo_venta">9. Productos que no tienen garantía 
+                            <br/>
+                            <br>
+                           <center> <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+
+                        <form action="./Query/Query10.php" method="POST">
+                            <label for="codigo_venta">10. Nombre del proveedor cuyo producto, otorga mayor ganancia neta
+                            <br/>
+                            <br>
+                           <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+
+
+
+                        <form action="./Query/Query11.php" method="POST">
+                            <label for="codigo_venta">11. Lista de comunas con su cantidad de Ventas realizadas por los clientes residentes de las respectivas comunas, y el monto  promedio de venta
+                            <br/>
+                            <br>
+                           <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+
+                        <form action="./Query/Query12.php" method="POST">
+                            <label for="codigo_venta">12. Bodega(s) la(s) cual(es) contiene la menor cantidad de productos
+                            <br/>
+                             <br>
+                           <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+
+                        
+
+                        <form action="./Query/Query13.php" method="POST">
+                            <label for="codigo_venta">13.Lista de los nombre de los vendedores, que más veces vendieron el producto que menos se vendió en la tienda
+                            <br/>
+                            <br/>
+                            <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+                        
+
+                        <form action="./Query/Query14.php" method="POST">
+                            <label for="codigo_venta">14. Calcular el porcentaje de variación en la cantidad de ventas de dos meses consecutivos(2019-01 Y 2019-02)
+                            <br/>
+                            <br/>
+                            <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+                        
+
+                        <form action="./Query/Query15.php" method="POST">
+                            <label for="codigo_venta">15.Porcentaje de variación de las monto obtenido en las ventas por la tienda, en 2 meses consecutivos.
+                            <br/>
+                            <br/>
+                            <center>
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
+                        </form>
+                        <br/>
+                        <br/>
+                        
+
+                        <form action="./Query/Query19.php" method="POST">
+                            <label for="codigo_venta"> 16. productos entre un rango de precio de venta, precio_min, precio_max
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Cual es el producto que mas se vende, en un determinado mes
-                                <span><em>(mes a analizar)</em></span></label>
                                 <br/>
-                            <input type="text" name="codigo_venta" class="form-input" required />
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Stock actual de los productos
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
+                                <center>
+                            <input type="text" name="precio_min" class="form-input" placeholder='precio_min' required /></br></br>
+                            <input type="text" name="precio_max" class="form-input" placeholder='precio_max' required />
+                            <input class="form-btn" name="submit" type="submit" value="Consultar" /></center>
                         </form>
                         <br/>
                         <br/>
-
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Cantidad de vendedores que hay en el local
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-                        <br/>
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Nombre y precio de los productos
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-                        <br/>
-
-
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">El total de remueraciones de los vendedores
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-                        <br/>
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Productos con sy determinado proveedor
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-                        <br/>
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Precios de los productos comprados a los proveedores
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-                        <br/>
-                        <br/>
-
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Nombre del producto y precios de los productos comprados a los proveedores 
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
+                        
 
                     </div>
+                    
 
 
 
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" id="card">
                 <div class="card-header" id="headingTwo">
                     <h2 class="mb-0">
-                        <button class="btn btn-primary btn-block text-center text-white" type="button" data-toggle="collapse"
+                        <button class="btn btn-light btn-block text-center text-dark" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            M                </form>
-                        <br/>
-                        <br/>
-
-
-                        <form action="" method="POST">
-                            <label for="codigo_venta">Nombre del producto y precios de los productos comprados a los proveedores 
-                            <br/>
-                            <input class="form-btn" name="submit" type="submit" value="Consultar" />
-                        </form>
-
-                    </div>
-
-odificar Base de datos
+                            Modificar Base de datos
                         </button>
                     </h2>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
                         <center>
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-info btn-lg" type="submit">
-                                    Insertar detalles de una venta
-                                </button>
-                            </form>
-                            <br />
-
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-danger btn-lg" type="submit">
-                                    Eliminar detalles de una venta
-                                </button>
-                            </form>
-                            <br />
-
-                            <form action="./Formularios/" method="POST">
+                            <form action="./Formularios/FVentas.html" method="POST">
                                 <button class="btn btn-info btn-lg" type="submit">
                                     Insertar datos de una venta
                                 </button>
                             </form>
                             <br />
 
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
+                            <form action="./Eliminar/EVentas.php" method="POST">
                                 <button class="btn btn-danger btn-lg" type="submit">
                                     Eliminar datos de una venta
+                                </button></br>
+                                <input type="text" name="codigo_venta" class="form-input" placeholder='Eliminar por Codigo Venta' required />
+                            </form>
+                            <br />
+                            <form action="./Formularios/FVDetalles.html" method="POST">
+                                <button class="btn btn-info btn-lg" type="submit">
+                                    Insertar detalles de una venta
                                 </button>
                             </form>
                             <br />
+
+                            <form action="./Eliminar/EVDetalles.php" method="POST">
+                                <button class="btn btn-danger btn-lg" type="submit">
+                                    Eliminar detalles de una venta
+                                </button>
+                                <br />
+                                <input type="text" name="codigo_venta" class="form-input" placeholder='Eliminar por Codigo Venta' required />
+
+                            </form>
+                            <br />
+
+                            <form action="./Formularios/FProductos.html" method="POST">
+                                <button class="btn btn-info btn-lg" type="submit">
+                                    Insertar datos de un producto
+                                </button>
+                            </form>
+                            <br />
+
+                            <form action="./Eliminar/EProductos.php" method="POST">
+                                <button class="btn btn-danger btn-lg" type="submit">
+                                    Eliminar datos de un producto
+                                </button>
+                                <br />
+                                <input type="text" name="codigo_producto" class="form-input" placeholder='Eliminar por Codigo Producto' required />
+
+                            </form>
+                            <br />
+
+                            <form action="./Formularios/FBodegas.html" method="POST">
+                                <button class="btn btn-info btn-lg" type="submit">
+                                    Insertar datos Bodegas
+                                </button>
+                            </form>
+                            <br />
+
+                            <form action="./Eliminar/EBodegas.php" method="POST">
+                                <button class="btn btn-danger btn-lg" type="submit">
+                                    Eliminar datos de una Bodega
+                                </button>
+                                <br />
+                                <input type="text" name="codigo_bodega" class="form-input" placeholder='Eliminar por Codigo Bodega' required />
+                            </form>
+                            <br />
+
+
                             <form action="./Formularios/" method="POST">
                                 <button class="btn btn-info btn-lg" type="submit">
                                     Insertar datos vendedor
@@ -284,6 +342,7 @@ odificar Base de datos
                                 <button class="btn btn-danger btn-lg" type="submit">
                                     Eliminar datos de un vendedor
                                 </button>
+                                <br />
                             </form>
                             <br />
 
@@ -301,19 +360,7 @@ odificar Base de datos
                             </form>
                             <br />
 
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-info btn-lg" type="submit">
-                                    Insertar datos de un producto
-                                </button>
-                            </form>
-                            <br />
 
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-danger btn-lg" type="submit">
-                                    Eliminar datos de un producto
-                                </button>
-                            </form>
-                            <br />
 
                         </center>
                     </div>

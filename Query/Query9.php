@@ -4,13 +4,24 @@ $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
 #Post
-$consulta = 'SELECT * FROM ventas_detalle';
-$resultado = $conexion->prepare($consulta);
-$resultado->execute();
 
-$ventas_detalle=$resultado->fetchAll(PDO::FETCH_ASSOC);
+
+$consulta = 'Select Productos.nombre 
+from Productos
+where garantia IS NULL;'
+;
+
+
+
+$ejecucion = $conexion->prepare($consulta);
+$ejecucion->execute();
+
+$resultado=$ejecucion->fetchAll(PDO::FETCH_ASSOC);
+//print_r($resultado);
+
+
+
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -37,15 +48,14 @@ $ventas_detalle=$resultado->fetchAll(PDO::FETCH_ASSOC);
   </head>
 
   <body>
-  <nav class="navbar navbar-light" id="navbar">
-        <a class="navbar-brand" href="#">Inicio</a>
-        <a class="navbar-brand navbar-left" href="#">Login</a>
+  <nav class="navbar navbar-dark" id="navbar">
+        <a class="navbar-brand" href="../index.php">Inicio</a>
 
     </nav>
     <div class="group">
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container">
-              <h1 class="display-4">Detalle de las Ventas</h1>
+              <h1 class="display-4">Productos que no tienen garantía </h1>
             </div>
         </div>
         <div class="container">
@@ -53,18 +63,14 @@ $ventas_detalle=$resultado->fetchAll(PDO::FETCH_ASSOC);
                 <div class="col-lg-12">
                     <table id="tablaventas_detalle" class="table-striped table-bordered" style="width:100%">
                         <thead class="text-center">
-                            <th>codigo_venta</th>
-                            <th>cantidad</th>
-                            <th>codigo_producto</th>
+                            <th>NombreProducto</th>
                         </thead>
                         <tbody>
                             <?php
-                                foreach($ventas_detalle as $detalle){
+                                foreach($resultado as $ojo){
                             ?>
-                            <tr>
-                                <td><?php echo $detalle['codigo_venta']?></td>
-                                <td><?php echo $detalle['cantidad']?></td>
-                                <td><?php echo $detalle['codigo_producto']?></td>
+                            <tr class="text-center text-light">
+                                <td><?php echo $ojo['nombre']?></td>
         
                             </tr>
                             <?php
@@ -105,3 +111,4 @@ $ventas_detalle=$resultado->fetchAll(PDO::FETCH_ASSOC);
       
   </body>
 </html>
+
