@@ -15,7 +15,7 @@ $resultado->execute();
 
 #Comprobar si se inserto
 if($resultado){
-    echo '<script language="javascript">alert("Eliminado Correctamente");window.location.href="../Tablas/Ventas_Detalles.php"</script>'; 
+    echo '<script language="javascript">alert("Eliminado Correctamente");window.location.href="../Tablas/Productos.php"</script>'; 
 }else{
     echo '<script language="javascript">alert("No se pudo Eliminar");window.location.href="../index.html"</script>';  
 

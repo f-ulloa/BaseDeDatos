@@ -47,7 +47,7 @@ exit();
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container">
               <h1 class="display-4">Bienvenido a GBD</h1>
-              <p class="lead">Es un gestor de base de datos, para una venta de celulares </p>
+              <p class="lead">Es un gestor de base de datos, para una tienda de venta de celulares </p>
             </div>
           </div>
 
@@ -325,7 +325,9 @@ exit();
                                     Eliminar datos de una Bodega
                                 </button>
                                 <br />
+                                
                                 <input type="text" name="codigo_bodega" class="form-input" placeholder='Eliminar por Codigo Bodega' required />
+                                <input type="text" name="codigo_producto" class="form-input" placeholder='y por el codigo del producto' required />
                             </form>
                             <br />
                         </center>

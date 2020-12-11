@@ -24,7 +24,7 @@ $ejecucion = $conexion->prepare($consulta);
 $ejecucion->execute();
 
 $resultado=$ejecucion->fetchAll(PDO::FETCH_ASSOC);
-print_r($resultado);
+//print_r($resultado);
 
 ?>
 

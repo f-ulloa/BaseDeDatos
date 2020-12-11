@@ -6,10 +6,12 @@ $conn=$objeto->Conectar();
 
 #POST
 $codigo_bodega=$_POST['codigo_bodega'];
+$codigo_producto=$_POST['codigo_producto'];
 
 
 #insertar datos recibidos por post
-$consulta='DELETE from Bodegas where Bodegas.codigo_bodega='.$codigo_bodega.';';
+$consulta='DELETE from Bodegas where Bodegas.codigo_bodega='.$codigo_bodega.'
+and Bodegas.codigo_producto='.$codigo_producto.';';
 $resultado=$conn->prepare($consulta);
 $resultado->execute();
 
