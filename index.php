@@ -37,11 +37,10 @@ exit();
 <body id="body">
     <nav class="navbar navbar-dark" id="navbar">
         <a class="navbar-brand" href="">Inicio</a>
-        <a class="navbar-brand" href="">Clientes</a>
-        <a class="navbar-brand" href="">Productos</a>
-        <a class="navbar-brand" href="">Vendedores</a>
-        <a class="navbar-brand" href="">Ventas</a>
-        <a class="navbar-brand" href="./Tablas/VentasDetalle.php">Detalles Ventas</a>
+         <a class="navbar-brand" href="./Tablas/Ventas.php">Ventas</a>
+        <a class="navbar-brand" href="./Tablas/Ventas_Detalles.php">Ventas_Detalles</a>
+        <a class="navbar-brand" href="./Tablas/Productos.php">Productos</a>
+        <a class="navbar-brand" href="./Tablas/Bodegas.php">Bodegas</a>
 
     </nav>
     <div class="group" id="group" >
@@ -329,39 +328,6 @@ exit();
                                 <input type="text" name="codigo_bodega" class="form-input" placeholder='Eliminar por Codigo Bodega' required />
                             </form>
                             <br />
-
-
-                            <form action="./Formularios/" method="POST">
-                                <button class="btn btn-info btn-lg" type="submit">
-                                    Insertar datos vendedor
-                                </button>
-                            </form>
-                            <br />
-
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-danger btn-lg" type="submit">
-                                    Eliminar datos de un vendedor
-                                </button>
-                                <br />
-                            </form>
-                            <br />
-
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-info btn-lg" type="submit">
-                                    Insertar datos de un cliente
-                                </button>
-                            </form>
-                            <br />
-
-                            <form action="./Formularios/ventas_detalle.html" method="POST">
-                                <button class="btn btn-danger btn-lg" type="submit">
-                                    Eliminar datos de un cliente
-                                </button>
-                            </form>
-                            <br />
-
-
-
                         </center>
                     </div>
                 </div>

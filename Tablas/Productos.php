@@ -39,12 +39,10 @@ $ventas_detalle=$resultado->fetchAll(PDO::FETCH_ASSOC);
   <body>
   <nav class="navbar navbar-dark" id="navbar">
   <a class="navbar-brand" href="../index.php">Inicio</a>
-        <a class="navbar-brand" href="../Tablas/Ventas.php">Ventas</a>
+  <a class="navbar-brand" href="../Tablas/Ventas.php">Ventas</a>
         <a class="navbar-brand" href="../Tablas/Ventas_Detalles.php">Ventas_Detalles</a>
         <a class="navbar-brand" href="../Tablas/Productos.php">Productos</a>
         <a class="navbar-brand" href="../Tablas/Bodegas.php">Bodegas</a>
-        <a class="navbar-brand" href="../Tablas/VentasDetalle.php">Detalles Ventas</a>
-
     </nav>
     <div class="group">
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
