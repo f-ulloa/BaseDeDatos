@@ -104,7 +104,7 @@ $resultado=$ejecucion->fetchAll(PDO::FETCH_ASSOC);
     <div class="group">
         <div class="jumbotron jumbotron-fluid text-center" id="jumbo">
             <div class="container">
-              <h1 class="display-4">Productos que no tienen garantía </h1>
+              <h1 class="display-4">Nombre del proveedor cuyo producto, otorga mayor ganancia neta </h1>
             </div>
         </div>
         <div class="container">
