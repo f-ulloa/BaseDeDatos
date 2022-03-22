@@ -10,7 +10,7 @@ Objetivos que se pretenden obtener con el sistema:
 La explicacion de los indices de gestion y los requerimientos dde informacion a satisfacer, el modelo entidad-relacion y las demostraciones del funcionamiento del sistema, se encuentran en 'Informe final.pdf'
 
 
-##Los directorios se administran de la siguiente manera:
+## Los directorios se administran de la siguiente manera:
 
 La carpeta BD, es solo las instancias, con las cuales se conecta a la base de datos local.
 
