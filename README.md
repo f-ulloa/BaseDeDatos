@@ -2,10 +2,10 @@
 En este proyecto se realizo un sistema de bases de datos en MYSQL, el cual administra el proceso de ventas realizadas en una tienda de ventas de celulares que registra los productos disponibles, los vendedores, y las ventas que se realicen, para su posterior consulta.
 
 Objetivos que se pretenden obtener con el sistema:
-● Facilitar la gestión de ventas de celulares.
-● Mejorar el flujo de la venta de celulares.
-● Facilitar el registro de contabilidad de la tienda.
-● Hacer análisis de los clientes, para próximas decisiones de la tienda.
+● Facilitar la gestión de ventas de celulares. \n
+● Mejorar el flujo de la venta de celulares. \n
+● Facilitar el registro de contabilidad de la tienda.\n
+● Hacer análisis de los clientes, para próximas decisiones de la tienda. \n
 
 La explicacion de los indices de gestion y los requerimientos dde informacion a satisfacer, el modelo entidad-relacion y las demostraciones del funcionamiento del sistema, se encuentran en 'Informe final.pdf'
 
